@@ -1,0 +1,550 @@
+/* Start Variables */
+
+:root {
+    --blue-color: rgb(0, 117, 255);
+    --blue-alt-color: rgb(13, 105, 213);
+    --orange-color: rgb(245, 158, 11);
+    --green-color: rgb(34, 197, 94);
+    --red-color: #f44336;
+    --grey-color: #888;
+    --main-transition: 0.5s;
+}
+
+/* End Variables */
+
+/* Start global rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+*:focus {
+    outline: none;
+}
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--blue-color);
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--blue-alt-color);
+}
+
+/* end Global rules */
+
+/* Start Page */
+.page {
+    background-color: #f1f5f9;
+    min-height: 100vh;
+}
+/* End Page */
+
+/* Start SideBar */
+.sidebar {
+    width: 250px;
+    box-shadow: 0px 0 10px rgb(221, 221, 221);
+}
+.sidebar > h3{
+    margin-bottom: 50px;
+}
+@media (min-width: 768px) {
+.sidebar > h3::before,
+.sidebar > h3::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+}
+.sidebar > h3::before{
+    bottom: -20px;
+    width: 80px;
+    height: 2px;
+}
+.sidebar > h3::after{
+    bottom: -29px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+}
+
+.sidebar ul li a { 
+    transition: 0.3s; 
+    margin-bottom: 5px;
+}
+.sidebar li a:hover,
+.sidebar li a.active {
+    background-color: #f6f6f6;
+}
+.sidebar ul li a span {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        width: 58px;
+        padding: 10px;
+    }
+      .sidebar > h3 {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+    .sidebar ul li a span {
+        display: none;
+}
+    
+}
+/* End SideBar */
+
+/* Start content */
+.content {
+    overflow: hidden;
+}
+.head .search::before {
+    font-family: "Font Awesome 6 Free";
+    content: "\f002";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--grey-color);
+    font-size: 14px;
+}
+.head .search input {
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    padding-left: 30px;
+    width: 160px;
+    transition: 0.3s;
+}
+.head .search input:focus {
+    width: 200px;
+}
+.head .search input:focus::placeholder {
+    opacity: 0;
+}
+.head .icons .notification::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--red-color);
+    border-radius: 50%;
+    right: -5px;
+    top: -5px;
+}
+.head .icons img {
+    width: 32px;
+    height: 32px;
+    margin-left: 15px;
+}
+.page h1 {
+    margin: 20px 20px 40px;
+}
+.page h1::before,
+.page h1::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    left: 0;
+    bottom: -10px;
+}
+.page h1::before {
+    width: 120px;
+    background-color: white;
+}
+.page h1::after {
+    width: 40px;
+    background-color: black;
+}
+/* End content */
+
+/* Start Wrapper */
+.wrapper {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    margin-left: 20px;
+    margin-right: 20px;
+}
+@media (max-width: 767px) {
+    .wrapper {
+    grid-template-columns: minmax(200px, 1fr);
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 10px;
+} 
+}
+/* End Wrapper */
+
+/* Start Welcome Widget */
+.welcome {
+    overflow: hidden;
+}
+.welcome .intro img{
+    width: 200px;
+    margin-bottom: -20px;
+}
+.welcome .avatar {
+    width: 64px;
+    height: 64px;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: 20px;
+    margin-top: -32px;
+    box-shadow: 0 0 5px #ddd;
+}
+.welcome .body {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.welcome .body > div {
+    flex: 1;
+}
+.welcome .visit {
+    margin: 0 15px 15px auto;
+    transition: 0.3s;
+}
+.welcome .visit:hover {
+    background-color: var(--blue-alt-color);
+}
+@media (max-width: 767px) {
+    .welcome .avatar {
+        margin-left: 0;
+    }
+    .welcome .intro > div:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+/* End Welcome Widget */
+
+/* Start Quick Draft */
+.quick-draft textarea {
+    resize: none;
+    min-height: 180px;
+}
+.quick-draft .save {
+    margin-left: auto;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.quick-draft .save:hover{
+    background-color: var(--blue-alt-color);
+}
+/* End Quick Draft */
+
+/* Start Targets */
+.targets .target-row .icon {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+}
+.targets .details {
+    flex: 1; 
+}
+.targets .details .progress {
+    height: 4px;
+}
+.targets .details .progress > span { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+.targets .details .progress > span span { 
+    position: absolute;
+    right: -16px;
+    bottom: 16px;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+.targets .details .progress > span span::after { 
+    content: "";
+    position: absolute;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.targets .details .progress > .blue span::after {
+    border-top-color: var(--blue-color);
+}
+.targets .details .progress > .orange span::after {
+    border-top-color: var(--orange-color);
+}
+.targets .details .progress > .green span::after {
+    border-top-color: var(--green-color);
+}
+.blue .icon, .blue .progress {
+    background-color: rgb(0 117 255 / 0.2);
+}
+.orange .icon, .orange .progress {
+    background-color: rgb(245 158 11 / 0.2);
+}
+.green .icon, .green .progress {
+    background-color: rgb(34 197 94 / 0.2);
+}
+/* End Targets */
+
+/* start Tickets */
+.tickets .statistics .box {
+    border: 1px solid #ccc;
+    width: calc(50% - 10px);
+}
+@media (max-width: 767px) {
+    .tickets .statistics .box {
+        width: 100%;
+    }
+}
+.tickets .statistics .box i {
+    font-weight: 900;
+}
+/* End Tickets */
+
+/* Start News */
+.news .new:not(:last-of-type) {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+    .news .new {
+        flex-direction: column;
+}
+.news .new img {
+    margin-bottom: 15px;
+}
+}
+.news .new img {
+    width: 100px;
+    margin-right: 15px;
+}
+.news .new .info {
+    flex-grow: 1;
+}
+.news .info h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+/* End News */
+
+/* Start Latest tasks */
+.tasks .task:not(:last-of-type) {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+.tasks .task .delete{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.tasks .task:not(:nth-child(5)) .delete:hover{
+    color: var(--red-color);
+}
+.tasks .done {
+    opacity: 0.3;
+}
+/* End Latest tasks */
+
+/* Start Search */
+.top-search {
+
+}
+.top-search .search {
+    padding-bottom: 10px;
+    
+}
+/* Start Search */
+/* end Search */
+
+/* start Uploads */
+.uploads .upload:not(:last-of-type) {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+.uploads .upload .image {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+/* End Uploads */
+
+/* Start Progress */
+.proj-progress ul .launch-icon {
+   position: absolute;
+   width: 160px;
+   bottom: 0;
+   right: 0;
+   opacity: 0.1;
+}
+.proj-progress ul::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color:  var(--blue-color);
+    left: 11px; 
+}
+.proj-progress ul li.done::before {
+    background-color: var(--blue-color);
+}
+.proj-progress ul li::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    outline: 2px solid var(--blue-color);
+    background-color: white;
+    border: 2px solid white;
+    margin-right: 15px;
+    z-index: 1;
+}
+.proj-progress ul li.current::before {
+    animation: clignot 0.8s infinite alternate;
+}
+/* End Progress */
+
+/* Start Reminders */
+.reminders {
+    
+}
+.reminders .reminder > .blue{
+    border-left: 2px solid var(--blue-color);
+}
+.reminders .reminder > .green{
+    border-left: 2px solid var(--green-color);
+}
+.reminders .reminder > .orange{
+    border-left: 2px solid var(--orange-color);
+}
+.reminders .reminder > .red{
+    border-left: 2px solid var(--red-color);
+}
+.reminders .reminder .key {
+    width: 15px;
+    height: 15px;
+}
+/* End Reminders */
+
+/* Start Latest Post  */
+.latest-post {
+
+}
+.latest-post .post .info, 
+.latest-post .post .text-post{
+    border-bottom: 1px solid #ddd;
+}
+.latest-post .post .info img {
+    width:  50px;
+    height: 50px;
+}
+/* End Latest Post  */
+
+/* start Keyframes */
+@keyframes clignot{
+        0% {
+            background-color: var(--blue-color);
+        }
+        100% {
+            background-color: white
+        }
+}
+
+/* End Keyframes */
+
+/* start Last Media Stats */
+.sm-stats {
+
+}
+.sm-stats .tw{
+    background-color: rgb(0 117 255 / 20%);
+}
+.sm-stats .fb{
+    background-color: rgba(6, 155, 255, 0.3);
+}
+.sm-stats .yt{
+    background-color: rgb(255 0 0 / 20%);
+}
+.sm-stats .yt .s-logo, 
+.sm-stats .yt .btn-shape {
+    background-color: red;
+}
+.sm-stats .li{
+    background-color: rgb(13 105 213 / 40%);
+}
+.sm-stats .li .s-logo, 
+.sm-stats .li .btn-shape {
+    background-color: rgb(13 105 213 / 95%);
+}
+.sm-stats .social .s-stats{
+    flex: 1;
+    padding-right: 15px;
+}
+.sm-stats .social .s-logo {
+    width: 55px;
+    height: 60px;
+}
+/* End Last Media Stats */
+
+/* Start Projects */
+.projects .responsive-table{
+    overflow-x: auto;
+}
+.projects table {
+    min-width: 1000px;
+    border-spacing: 0;
+}
+.projects thead td {
+    background-color: #eee;
+    font-weight: bold;
+}
+table td {
+    padding: 15px;
+}
+.projects table tbody td {
+    border-bottom: 1px solid #eee;
+    border-left: 1px solid #eee;
+    transition: 0.3s;
+}
+table tbody tr:hover td {
+    background-color: #faf7f7;
+}
+table tr td .team {
+    width: 32px;
+    height: 32px;
+    border: 2px solid white;
+    
+}
+.projects table .team:not(:first-child) {
+    margin-left: -20px;
+}
+/* End Projects */
+
